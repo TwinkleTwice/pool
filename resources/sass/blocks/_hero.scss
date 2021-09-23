@@ -1,0 +1,67 @@
+section#hero {
+    position: relative;
+    background: url("/i/hero-bg.png") center/cover no-repeat;
+    height: 100vh;
+    overflow: hidden;
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 48rem;
+        bottom: 0;
+        z-index: 1;
+        background: url("/i/wave.png") center/cover no-repeat;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 50rem;
+        bottom: -19rem;
+        right: -1rem;
+        background: url("/i/blue-wave.png") no-repeat;
+    }
+    .container {
+        .hero-content {
+            padding-top: 19rem;
+            text-align: center;
+            .title {
+                @include title();
+            }
+            .text {
+                font-size: 1.8rem;
+                text-align: center;
+                padding: 3.5rem 0;
+                line-height: 2.5rem;
+                span {
+                    @include ff(gb);
+                }
+            }
+            .btn {
+                @include ff(gm);
+
+                position: relative;
+                width: max-content;
+
+                padding: 1.4rem 2.6rem;
+                margin: 0 auto;
+
+                border: unset;
+                outline: none;
+                cursor: pointer;
+                border-radius: 10px;
+
+                font-size: 2rem;
+                color: $white;
+                background-color: $orange;
+                background: linear-gradient(to bottom, #f5b76f 34%, #ee6f23 100%);
+
+                z-index: 2;
+                &:hover {
+                    background-color: #1791b8;
+                    background: linear-gradient(to bottom, #26c0df 34%, #1791b8 100%);
+                }
+            }
+        }
+    }
+}

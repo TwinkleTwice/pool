@@ -1,0 +1,114 @@
+header.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1;
+    .nav {
+        @include flex(space-around);
+
+        @include ff(gsb);
+
+        font-size: 1.8rem;
+
+        .nav-icon {
+            @include box(16rem);
+            background: url("/i/icons/logo.png") center/contain no-repeat;
+        }
+
+        a {
+            position: relative;
+            display: block;
+            text-decoration: none;
+        }
+        a:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            top: 2rem;
+            left: 0;
+            background: url("/i/icons/wave-line.png") center/contain no-repeat;
+            transition: transform 0.5s;
+            transform: scaleX(0);
+        }
+        a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    }
+}
+
+@include responsive{
+    .hamburger {
+        visibility: visible;
+        opacity: 1;
+    }
+    .hamburger-box {
+        width: 6rem;
+        height: 3.6rem;
+        display: inline-block;
+        position: relative;
+        .hamburger-inner {
+            background-color: $blue;
+            width: 6rem;
+            height: 0.6rem;
+            border-radius: 4px;
+            position: absolute;
+            &:before{
+                content: "";
+                display: block;
+                top: 1.5rem;
+                background-color: $blue;
+                width: 6rem;
+                height: 0.6rem;
+                border-radius: 4px;
+                position: absolute;
+            }
+            &:after{
+                content: "";
+                display: block;
+                top: 3rem;
+                background-color: $blue;
+                width: 6rem;
+                height: 0.6rem;
+                border-radius: 4px;
+                position: absolute;
+            }
+        }
+    }
+
+    .hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::before, .hamburger.is-active .hamburger-inner::after {
+        background-color: $blue;
+    }
+
+    .header {
+        background: $white;
+
+        position: fixed;
+
+        visibility: hidden;
+
+        padding: unset!important;
+
+        &.is-active{
+            opacity: 1;
+            visibility: visible;
+            z-index: 3;
+        }
+        .container {
+            .nav{
+                @include flex(space-between, center, column);
+
+                padding: 9rem 0 12rem 0;
+                height: 100vh;
+
+                font-size: 3.2rem;
+                .nav-icon {
+                    display: none;
+                }
+            }
+        }
+    }
+}

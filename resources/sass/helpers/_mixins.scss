@@ -1,0 +1,90 @@
+@mixin responsive {
+    @media only screen and (max-width: $responsive) {
+        @content;
+    }
+}
+
+@mixin box($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin flex($justify: space-between, $items: center, $direction : row, $wrap : nowrap ) {
+    justify-content: $justify;
+    align-items: $items;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    display: flex;
+}
+
+@mixin title($tt : h1) {
+    @if ($tt == h1) {
+        font-size: 3.5rem;
+        text-align: center;
+        text-transform: uppercase;
+        color: $blue;
+        @include ff(gb);
+    }
+    @else if ($tt == h1-white) {
+        color: $white;
+    }
+    @else if($tt == h2) {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        color: $blue;
+    }
+}
+
+@mixin ff($ff: gm) {
+    @if($ff == gm) {
+        font-family: 'Gilroy-Medium';
+    }
+    @else if($ff == gb) {
+        font-family: 'Gilroy-Bold';
+    }
+    @else if($ff == gsb) {
+        font-family: 'Gilroy-SemiBold';
+    }
+    @else if($ff == gr) {
+        font-family: 'Gilroy-Regular';
+    }
+    @else if($ff == gl) {
+        font-family: 'Gilroy-Light';
+    }
+}
+
+@mixin underline_link($color : $blue, $header : false) {
+    position: relative;
+    width: max-content;
+
+    color: $color;
+    $offset : -0.2rem;
+
+    @if($header == true) {
+        $offset : -0.7rem;
+    }
+
+    @include responsive{
+        $offset : -2px;
+
+        @if($header == true) {
+            $offset : -7px;
+        }
+
+        &:after {
+            height: 1px !important;
+        }
+    }
+    &:after{
+        content: '';
+        height: 1px;
+
+        position: absolute;
+        bottom: $offset;
+        left: $offset;
+        right: $offset;
+
+        background: $color;
+    }
+}
+

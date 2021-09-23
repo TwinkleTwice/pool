@@ -1,0 +1,81 @@
+section#form {
+    position: relative;
+    background: url("/i/form-bg.png") center/cover no-repeat;
+    .container {
+        .title {
+            display: block;
+            @include title();
+            padding-top: 22rem;
+        }
+        .wave-line {
+            display: block;
+            margin: 0 auto;
+            padding: 2.5rem 0;
+        }
+        .text {
+            font-size: 1.8rem;
+            text-align: center;
+            line-height: 2.5rem;
+            color: $blue;
+        }
+        .man-img {
+            position: absolute;
+            width: 37rem;
+            height: 55rem;
+            right: 0;
+            bottom: -0.4rem;
+        }
+        .form {
+            padding-bottom: 8rem;
+            .row {
+                padding: 4rem 0 2rem 0;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                input {
+                    padding: 1.5rem 2.2rem;
+                    margin-bottom: 2rem;
+                    width: 31.5rem;
+                    box-sizing: border-box;
+                    display: block;
+                    background: white;
+                    border-radius: 10px;
+                    border: 1px solid $gray;
+                    resize: none;
+                    outline: none;
+                    font-size: 1.8rem;
+                    box-shadow: 2px 2px 6px 0px rgb(34 60 80 / 10%) inset;
+                    &::placeholder {
+                        color: $blue;
+                    }
+                }
+            }
+            .btn {
+                @include ff(gm);
+
+                position: relative;
+                display: block;
+                width: max-content;
+
+                padding: 1.4rem 5rem;
+                margin: 0 auto;
+
+                border: unset;
+                outline: none;
+                cursor: pointer;
+                border-radius: 10px;
+
+                font-size: 2rem;
+                color: $white;
+                background-color: #ee6f23;
+                background: linear-gradient(to bottom, #f5b76f 34%, #ee6f23 100%);
+
+                z-index: 2;
+                &:hover {
+                    background-color: #1791b8;
+                    background: linear-gradient(to bottom, #26c0df 34%, #1791b8 100%);
+                }
+            }
+        }
+    }
+}

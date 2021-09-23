@@ -1,0 +1,80 @@
+footer.footer {
+    position: relative;
+    .container {
+        .wrap {
+            position: absolute;
+            z-index: 1;
+            transform: translateY(16%);
+
+            vertical-align: middle;
+
+            display: flex;
+            flex-direction: column;
+
+            width: max-content;
+
+            padding: 5rem;
+            background: $white;
+
+            border-radius: 4% / 80%;
+
+            text-align: left;
+            font-size: 1.8rem;
+
+            .title {
+                @include ff(gb);
+
+                @include title(h2);
+
+                padding-bottom: 5rem;
+            }
+
+            p {
+                padding-bottom: 3rem;
+            }
+
+            .location, .phone, .email {
+                position: relative;
+                margin-left: 4rem;
+            }
+
+            .location:after {
+                content: "";
+                position: absolute;
+                width: 3rem;
+                height: 3rem;
+                top: 0;
+                left: -4rem;
+                background: $gray;
+                mask: url('/i/icons/map-icon.png') center/contain no-repeat;
+            }
+
+            .phone:after {
+                content: "";
+                position: absolute;
+                width: 3rem;
+                height: 3rem;
+                top: -1rem;
+                left: -4rem;
+                background: $gray;
+                mask: url('/i/icons/phone-icon.png') center/contain no-repeat;
+            }
+
+            .email:after {
+                content: "";
+                position: absolute;
+                width: 3rem;
+                height: 3rem;
+                top: -1rem;
+                left: -4rem;
+                background: $gray;
+                mask: url('/i/icons/email-icon.png') center/contain no-repeat;
+            }
+
+            .phone {
+                @include ff(gb);
+            }
+
+        }
+    }
+}
